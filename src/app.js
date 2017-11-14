@@ -33,8 +33,8 @@ const routes = (
         <div>
             <Route path='/' component={ExpenseDashBoardPage} exact={true}/>
             <Route path='/create' component={AddExpensePage}/>
-            <Route path='/edit-expense-page' component={EditExpensePage}/>
-            <Route path='/help-page' component={helpPage}/>
+            <Route path='/edit' component={EditExpensePage}/>
+            <Route path='/help' component={helpPage}/>
         </div>
     </BrowserRouter>
 );

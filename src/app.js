@@ -38,27 +38,12 @@ const NotFoundPage = () => (
 const Header = () => (
     <header>
         <h1>Expensify</h1>
-        <ul>
-            <li>
-                <Link to='/'>Home</Link>
-            </li>
-            <li>
-                <Link to='/create'>Create Expense</Link>
-            </li>
-            <li>
-                <Link to='/edit'>Edit Expenses</Link>
-            </li>
-            <li>
-                <Link to='/help'>Help</Link>
-            </li>
-        </ul>
+        <Link to='/'>Home</Link>
+        <Link to='/create'>Create Expense</Link>
+        <Link to='/edit'>Edit Expenses</Link>
+        <Link to='/help'>Help</Link>
     </header>
 );
-
-// link to home page
-// link to the create expense page
-// link to the edit page
-// linking to the help page
 
 const routes = (
     <BrowserRouter> 

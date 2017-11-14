@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss'
 
@@ -22,20 +22,29 @@ const EditExpensePage = () => (
     </div>
 );
 
-const helpPage = () => (
+const HelpPage = () => (
     <div>
         This is from help page.
     </div>
 );
 
+const NotFoundPage = () => (
+    <div>
+        Not Found
+    </div>
+);
+
+// component is optional.
+// switch moves through your routes in order and stops when it finds a match.
 const routes = (
     <BrowserRouter> 
-        <div>
+        <Switch>
             <Route path='/' component={ExpenseDashBoardPage} exact={true}/>
             <Route path='/create' component={AddExpensePage}/>
             <Route path='/edit' component={EditExpensePage}/>
-            <Route path='/help' component={helpPage}/>
-        </div>
+            <Route path='/help' component={HelpPage}/>
+            <Route component={NotFoundPage}/>
+        </Switch>
     </BrowserRouter>
 );
 

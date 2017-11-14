@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss'
 
@@ -27,8 +27,7 @@ const HelpPage = () => (
         This is from help page.
     </div>
 );
-// a href='/'>Go home</a> would cause a page refresh and server call
-// instead we're going to set an event listener, overide the default behaviour and specify where we want to re-render instead.
+
 const NotFoundPage = () => (
     <div>
         404! - <Link to='/'>Go Home</Link>
@@ -38,10 +37,10 @@ const NotFoundPage = () => (
 const Header = () => (
     <header>
         <h1>Expensify</h1>
-        <Link to='/'>Home</Link>
-        <Link to='/create'>Create Expense</Link>
-        <Link to='/edit'>Edit Expenses</Link>
-        <Link to='/help'>Help</Link>
+        <NavLink to='/' activeClassName='is-active' exact={true}>Home</NavLink>
+        <NavLink to='/create' activeClassName='is-active'>Create Expense</NavLink>
+        <NavLink to='/edit' activeClassName='is-active'>Edit Expenses</NavLink>
+        <NavLink to='/help' activeClassName='is-active'>Help</NavLink>
     </header>
 );
 

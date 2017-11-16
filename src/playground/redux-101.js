@@ -7,8 +7,9 @@ const store = createStore((state = { count : 0 }, action) => {
     switch (action.type) {
         // Convention capitalized snake case
         case 'INCREMENT':
+            const incrementBy = typeof action.incrementBy === 'number' ? action.incrementBy : 1;
             return {
-                count: state.count + 1
+                count: state.count + incrementBy
             };
         case 'DECREMENT':
             return {
@@ -23,19 +24,21 @@ const store = createStore((state = { count : 0 }, action) => {
     }
 });
 
-console.log(store.getState());
+const unsubscribe = store.subscribe(() => {
+    console.log(store.getState());
+});
+
 
 // Sends off an action to the store
 store.dispatch({
-    type: 'INCREMENT'
+    type: 'INCREMENT',
+    incrementBy: 5
 });
 
 store.dispatch({
     type: 'INCREMENT'
 });
 
-//Challenge
-// Reset - set the count equal to zero
 store.dispatch({
     type: 'RESET'
 });
@@ -44,9 +47,8 @@ store.dispatch({
     type: 'DECREMENT'
 });
 
-// How do I increment the count
-// Or reset the count to zero
+// Challenge - decremenetBy 10
+store.dispatch({
+    type: 'DECREMENT'
+});
 
-
-// we can get the state. by calling getState.
-console.log(store.getState());

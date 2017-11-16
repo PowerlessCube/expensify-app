@@ -10,7 +10,20 @@ import { createStore, combineReducers } from 'redux';
 // SET_END_DATE
 
 // Filters Reducer - Challenge
+// text = '', sortby => 'date', startDate = undefined, endDate = 'undefined'
+const filterReducerDefaultState = { 
+    text: '',
+    sortBy: 'date',
+    startDate: undefined,
+    endDate: undefined
+}
 
+const filterReducer = (state = filterReducerDefaultState, action) => {
+    switch(action.type) {
+        default:
+            return state;
+    }
+}
 
 // Expenses Reducer
 const expensesReducerDefaultState = []
@@ -25,6 +38,7 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
 const store = createStore(
     combineReducers({
         expenses: expensesReducer,
+        filters: filterReducer
     })
 );
 console.log(store.getState());

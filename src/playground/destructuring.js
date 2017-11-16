@@ -26,11 +26,12 @@
 const book = {
     title: 'Ego is the Enemy',
     author: 'Ryan Holiday',
-    published: {
+    publisher: {
         name: 'Penguin'
     }
 };
 
 //Challenge - use destructuring to cl the below.
+const {name: publisherName = 'Self-published'} = book.publisher
 
 console.log(publisherName); // Penguin default = self-published

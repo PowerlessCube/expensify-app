@@ -3,7 +3,9 @@ import { createStore } from 'redux';
 
 // Needs a func as first argument, which sets the state.  This is the default state object
 const store = createStore((state = { count : 0 }, action) => {
+    // Actions - change things in our store.
     switch (action.type) {
+        // Convention capitalized snake case
         case 'INCREMENT':
             return {
                 count: state.count + 1
@@ -14,7 +16,7 @@ const store = createStore((state = { count : 0 }, action) => {
             };
         case 'RESET':
             return {
-                count: state.count = 0
+                count: 0
             };
         default:
             return state;
@@ -23,10 +25,6 @@ const store = createStore((state = { count : 0 }, action) => {
 
 console.log(store.getState());
 
-// Actions - change things in our store.
-
-// increment, decrement, reset.
-// Convention capitalized snake case
 // Sends off an action to the store
 store.dispatch({
     type: 'INCREMENT'

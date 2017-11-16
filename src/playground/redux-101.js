@@ -12,6 +12,10 @@ const store = createStore((state = { count : 0 }, action) => {
             return {
                 count: state.count - 1
             };
+        case 'RESET':
+            return {
+                count: state.count = 0
+            };
         default:
             return state;
     }
@@ -32,7 +36,11 @@ store.dispatch({
     type: 'INCREMENT'
 });
 
+//Challenge
 // Reset - set the count equal to zero
+store.dispatch({
+    type: 'RESET'
+});
 
 store.dispatch({
     type: 'DECREMENT'

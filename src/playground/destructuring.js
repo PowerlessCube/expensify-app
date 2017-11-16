@@ -1,3 +1,5 @@
+// Object Destructuring
+
 // const person = {
 //     name: 'Alistair',
 //     age: 29,
@@ -23,15 +25,26 @@
 //     console.log(`it's ${temperature} deg in ${city}.`);
 // }
 
-const book = {
-    title: 'Ego is the Enemy',
-    author: 'Ryan Holiday',
-    publisher: {
-        name: 'Penguin'
-    }
-};
+// const book = {
+//     title: 'Ego is the Enemy',
+//     author: 'Ryan Holiday',
+//     publisher: {
+//         name: 'Penguin'
+//     }
+// };
 
-//Challenge - use destructuring to cl the below.
-const {name: publisherName = 'Self-published'} = book.publisher
+// //Challenge - use destructuring to cl the below.
+// const {name: publisherName = 'Self-published'} = book.publisher;
 
-console.log(publisherName); // Penguin default = self-published
+// console.log(publisherName); // Penguin default = self-published
+
+// Array Destructuitng
+
+// const address = ['8/1 lonton place', 'Fancy city', 'Madeup Region', 'Whatevsland'];
+// const [, city, state = 'New York'] = address // destructures by array position.
+// console.log(`You are in ${city} ${state}.`);
+
+const item = ['Coffee (hot)', '$2.00', '$2.50', '$2.75'];
+// Challenge
+// grab first and 3rd items using array destructuring.
+console.log(`A medium Coffee (hot) costs $2.50`);

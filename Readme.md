@@ -4,6 +4,8 @@
 
 # Tools Used
 - [Redux](www.redux.js.org)
+- [babel object spread operator](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
+
 
 # Concept notes
 

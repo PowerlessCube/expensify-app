@@ -1,15 +1,30 @@
-// To use redux we need to access createStore
 import { createStore } from 'redux';
 
-// Needs a func as first argument, which sets the state.  This is the default state object
+// Action generators - functions that retun action objects.
+const incrementCount = ({ incrementBy = 1 } = {}) => ({
+    type: 'INCREMENT',
+    incrementBy: incrementBy
+});
+
+const decrementCount = ({decrementBy = 1} = {}) => ({
+    type: 'DECREMENT',
+    decrementBy: decrementBy
+});
+
+// Challenge
+// setCount
+const setCount = ({ count = 0 } = {}) => ({
+    type: 'SET',
+    count: count
+});
+
+// resetCount
+
 const store = createStore((state = { count : 0 }, action) => {
-    // Actions - change things in our store.
     switch (action.type) {
-        // Convention capitalized snake case
         case 'INCREMENT':
-            const incrementBy = typeof action.incrementBy === 'number' ? action.incrementBy : 1;
             return {
-                count: state.count + incrementBy
+                count: state.count + action.incrementBy
             };
         case 'DECREMENT':
             const decrementBy = typeof action.decrementBy === 'number' ? action.decrementBy : 1;
@@ -33,31 +48,14 @@ const unsubscribe = store.subscribe(() => {
     console.log(store.getState());
 });
 
-// Sends off an action to the store
-store.dispatch({
-    type: 'INCREMENT',
-    incrementBy: 5
-});
+store.dispatch(incrementCount({ incrementBy: 5 }));
 
-store.dispatch({
-    type: 'INCREMENT'
-});
+store.dispatch(incrementCount());
 
-store.dispatch({
-    type: 'RESET'
-});
+store.dispatch(setCount());
 
-store.dispatch({
-    type: 'DECREMENT'
-});
+store.dispatch(decrementCount());
 
-// Challenge - decremenetBy 10
-store.dispatch({
-    type: 'DECREMENT',
-    decrementBy: 10
-});
+store.dispatch(decrementCount({ decrementBy: 10 }));
 
-store.dispatch({
-    type: 'SET',
-    count: 101
-})
+store.dispatch(setCount({ count: 101 }));

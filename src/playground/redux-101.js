@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 
-// Action generators - functions that retun action objects.
+// Action Generator
 const incrementCount = ({ incrementBy = 1 } = {}) => ({
     type: 'INCREMENT',
     incrementBy
@@ -11,8 +11,6 @@ const decrementCount = ({decrementBy = 1} = {}) => ({
     decrementBy
 });
 
-// Challenge
-// resetCount - same as set count with no args passed in
 const resetCount = () => ({
     type: 'RESET'
 });
@@ -22,8 +20,11 @@ const setCount = ({ count } = {}) => ({
     count
 });
 
+// Reducers - https://redux.js.org/docs/basics/Reducers.html
+// 1. Reducers are pure functions = output only determined by input they don't interact with anything outside their scope.
 
-const store = createStore((state = { count : 0 }, action) => {
+// 2. Never change state or action. don't reassign/mutate them.
+const countReducer = (state = { count : 0 }, action) => {
     switch (action.type) {
         case 'INCREMENT':
             return {
@@ -44,7 +45,9 @@ const store = createStore((state = { count : 0 }, action) => {
         default:
             return state;
     }
-});
+};
+
+const store = createStore(countReducer);
 
 const unsubscribe = store.subscribe(() => {
     console.log(store.getState());

@@ -28,8 +28,7 @@ const withAdminWarning = (WrappedComponent) => {
 const requireAuthentication = (WrappedComponent) => {
     return (props) => (
         <div>
-            {!props.isAuthenticated && <p>Access Denied: Go sign in champ.</p>}
-            {props.isAuthenticated && <WrappedComponent {...props}/>}
+            {props.isAuthenticated ? <WrappedComponent {...props}/> : <p>Access Denied: Go sign in champ.</p>}
         </div>
     );
 };

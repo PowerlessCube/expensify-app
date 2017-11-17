@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// Set up Provider 
+import { Provider } from 'react-redux'
+
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { addExpense } from './actions/expenses';
@@ -11,14 +14,23 @@ import './styles/styles.scss'
 const store = configureStore();
 
 const expenseOne = store.dispatch(addExpense({description: 'Water Bill', amount: 7000, createdAt: 21000}))
-
 const expenseTwo = store.dispatch(addExpense({description: 'Gas Bill', amount: 6000, createdAt: 21200}))
 store.dispatch(setTextFilter('Bill'))
+
+setTimeout(() => {
+    store.dispatch(setTextFilter('Rent'))
+}, 3000)
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
 console.log(visibleExpenses);
-
 console.log(store.getState());
 
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
+// This allows us to provide the store to all of our components
+const jsx = (
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));

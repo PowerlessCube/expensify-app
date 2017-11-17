@@ -2,7 +2,7 @@ const path = require('path');
 const publicPathString = path.join(__dirname, 'public');
 
 module.exports = {
-    entry: './src/playground/hoc.js',
+    entry: './src/app.js',
     output: { 
         path: publicPathString,
         filename: 'bundle.js'

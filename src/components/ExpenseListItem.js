@@ -1,14 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-// Export a stateless functional component
-const ExpenseListItem = (props) => (
+const ExpenseListItem = ({ description, amount, createdAt }) => (
     <div>
-        <p>{props.description}</p>
-        <p>{props.amount}</p>
-        <p>{props.createdAt}</p>
+        <h3>{description}</h3>
+        <p>{amount} - {createdAt}</p>
     </div>
 );
 
 export default ExpenseListItem;
-// description, amount, createdAt

@@ -1,11 +1,8 @@
 import React from 'react';
-//Installed moment - a handy date utility library for js
 import moment from 'moment';
-//Installed airbnb datepicker that requires moment
 import {SingleDatePicker} from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 
-// const date = new Date();
 const now = moment();
 console.log(now.format('Do MMM, YYYY'));
 
@@ -14,9 +11,9 @@ class ExpenseForm extends React.Component {
         description: '',
         note: '',
         amount: '',
-        // initial value
         createdAt: moment(),
-        calendarFocused: false
+        calendarFocused: false,
+        error: ''
     };
 
     onDescriptionChange = (e) => {
@@ -46,10 +43,24 @@ class ExpenseForm extends React.Component {
         this.setState(() => ({ calendarFocused: focused }))
     }
 
+    onSubmit = (e) => {
+        e.preventDefault();
+        if (!this.state.description || !this.state.amount) {
+            // Set error state equal to 'Please provide description and amount'
+            console.log('error');
+            this.setState(() => ({error: 'Please provide description and amount'}))
+        } else {
+            // Clear the error
+            this.setState(() => ({error: ''}))            
+            console.log('submitted');
+        }
+    }
+
     render() {
         return (
             <div>
-                <form action="">
+                <form onSubmit={this.onSubmit}>
+                    {this.state.error.length !== 0 && <p>{this.state.error}</p>}
                     <input 
                         type="text"
                         placeholder="Description"

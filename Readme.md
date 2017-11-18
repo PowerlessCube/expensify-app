@@ -5,6 +5,7 @@
 # Tools Used
 - [Redux](www.redux.js.org)
 - [react-redux](https://github.com/reactjs/react-redux)
+- [redux devtool extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [babel object spread operator](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
 - [momentjs](https://momentjs.com/)
 - [airbnb react-dates](https://github.com/airbnb/react-dates)
@@ -12,7 +13,6 @@
 # Concept notes
 
 ## Why Do we Need Something Like Redux?
-
 [Link to video](https://completereactcourse.com/courses/217645/lectures/3382375)
 
 Redux is a state management library, it helps overcome some of the difficulties of working with component based state management.

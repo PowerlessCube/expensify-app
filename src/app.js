@@ -12,18 +12,13 @@ import './styles/styles.scss'
 
 const store = configureStore();
 
-const expenseOne = store.dispatch(addExpense({description: 'Water Bill', amount: 7000, createdAt: 21000}))
+const expenseOne = store.dispatch(addExpense({description: 'Water Bill', amount: 7000, createdAt: -21000}))
 const expenseTwo = store.dispatch(addExpense({description: 'Gas Bill', amount: 6000, createdAt: 21200}))
-store.dispatch(setTextFilter('Bill'))
-
-setTimeout(() => {
-    store.dispatch(setTextFilter('Water'))
-}, 3000)
+const expenseThree = store.dispatch(addExpense({description: 'Rent', amount: 109500, date: 100}))
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
 console.log(visibleExpenses);
-console.log(store.getState());
 
 const jsx = (
     <Provider store={store}>

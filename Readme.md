@@ -4,8 +4,10 @@
 
 # Tools Used
 - [Redux](www.redux.js.org)
+- [react-redux](https://github.com/reactjs/react-redux)
 - [babel object spread operator](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
-
+- [momentjs](https://momentjs.com/)
+- [airbnb react-dates](https://github.com/airbnb/react-dates)
 
 # Concept notes
 

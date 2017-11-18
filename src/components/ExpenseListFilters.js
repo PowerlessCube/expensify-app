@@ -25,9 +25,6 @@ const ExpenseListFilters = (props) => (
     </div>
 );
 
-// setup value and onChange for select add in conditional logic to handle.
-
-
 const mapStateToProps = (state) => {
     return {
         filters: state.filters

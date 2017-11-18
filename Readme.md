@@ -3,12 +3,13 @@
 # Installation Guide
 
 # Tools Used
-- [Redux](www.redux.js.org)
-- [react-redux](https://github.com/reactjs/react-redux)
-- [redux devtool extension](https://github.com/zalmoxisus/redux-devtools-extension)
-- [babel object spread operator](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
-- [momentjs](https://momentjs.com/)
 - [airbnb react-dates](https://github.com/airbnb/react-dates)
+- [babel object spread operator](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
+- [jest](https://facebook.github.io/jest/)
+- [momentjs](https://momentjs.com/)
+- [react-redux](https://github.com/reactjs/react-redux)
+- [Redux](www.redux.js.org)
+- [redux devtool extension](https://github.com/zalmoxisus/redux-devtools-extension)
 
 # Concept notes
 

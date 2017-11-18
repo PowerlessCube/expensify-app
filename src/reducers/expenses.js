@@ -17,11 +17,11 @@ export default (state = expensesReducerDefaultState, action) => {
                     return {
                         ...expense,
                         ...action.updates
-                    }
+                    };
                 } else {
-                    return expense
-                }
-            })
+                    return expense;
+                };
+            });
         default:
             return state;
     }

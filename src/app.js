@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// Set up Provider 
 import { Provider } from 'react-redux'
 
 import AppRouter from './routers/AppRouter';
@@ -26,7 +25,6 @@ const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
 console.log(visibleExpenses);
 console.log(store.getState());
 
-// This allows us to provide the store to all of our components
 const jsx = (
     <Provider store={store}>
         <AppRouter />

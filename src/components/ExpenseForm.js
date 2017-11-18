@@ -1,12 +1,10 @@
 import React from 'react';
 
-// setup note state.
-// setup onChange and value for textarea.
-
 class ExpenseForm extends React.Component {
     state = {
         description: '',
-        note: ''
+        note: '',
+        amount: ''
     };
 
     onDescriptionChange = (e) => {
@@ -18,6 +16,13 @@ class ExpenseForm extends React.Component {
         const note = e.target.value;
         this.setState({ note });
     }   
+
+    onAmountChange = (e) => {
+        const amount = e.target.value;
+        if (amount.match(/^\d*(\.\d{0,2})?$/)) {
+            this.setState(() => ({ amount }))
+        }
+    }
 
     render() {
         return (
@@ -31,8 +36,10 @@ class ExpenseForm extends React.Component {
                         onChange={this.onDescriptionChange}
                     />
                     <input 
-                        type="number"
+                        type="text"
                         placeholder="Amount"
+                        value={this.state.amount}
+                        onChange={this.onAmountChange}
                     />
                     <textarea 
                         placeholder="Add a note for your expense (optional)"

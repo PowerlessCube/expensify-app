@@ -3,9 +3,6 @@ import moment from 'moment';
 import {SingleDatePicker} from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 
-const now = moment();
-console.log(now.format('Do MMM, YYYY'));
-
 class ExpenseForm extends React.Component {
     state = {
         description: '',
@@ -46,13 +43,15 @@ class ExpenseForm extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
         if (!this.state.description || !this.state.amount) {
-            // Set error state equal to 'Please provide description and amount'
-            console.log('error');
             this.setState(() => ({error: 'Please provide description and amount'}))
         } else {
-            // Clear the error
-            this.setState(() => ({error: ''}))            
-            console.log('submitted');
+            this.setState(() => ({error: ''})) 
+            this.props.onSubmit({
+                description: this.state.description,
+                amount: parseFloat(this.state.amount, 10) * 100,
+                createdAt: this.state.createdAt.valueOf(),
+                note: this.state.note
+            })           
         }
     }
 
@@ -60,7 +59,7 @@ class ExpenseForm extends React.Component {
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
-                    {this.state.error.length !== 0 && <p>{this.state.error}</p>}
+                    {this.state.error && <p>{this.state.error}</p>}
                     <input 
                         type="text"
                         placeholder="Description"

@@ -8,6 +8,7 @@
 - [jest](https://facebook.github.io/jest/)
 - [momentjs](https://momentjs.com/)
 - [react-redux](https://github.com/reactjs/react-redux)
+- [react-test-render](https://github.com/facebook/react/tree/master/packages/react-test-renderer)
 - [Redux](www.redux.js.org)
 - [redux devtool extension](https://github.com/zalmoxisus/redux-devtools-extension)
 

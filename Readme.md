@@ -5,6 +5,7 @@
 # Tools Used
 - [airbnb react-dates](https://github.com/airbnb/react-dates)
 - [babel object spread operator](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
+- [Enzyme](http://airbnb.io/enzyme/docs/api/)
 - [jest](https://facebook.github.io/jest/)
 - [momentjs](https://momentjs.com/)
 - [react-redux](https://github.com/reactjs/react-redux)

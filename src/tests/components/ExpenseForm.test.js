@@ -16,25 +16,33 @@ test('Should render ExpenseForm correctly with expense data', () => {
 test('should render error for invalid form submission', () => {
     const wrapper = shallow(<ExpenseForm />)
     expect(wrapper).toMatchSnapshot();
-    // https://github.com/airbnb/enzyme/blob/master/docs/api/ShallowWrapper/simulate.md
     wrapper.find('form').simulate('submit', {
         preventDefault: () => { }
     });
-    // https://github.com/airbnb/enzyme/blob/master/docs/api/ReactWrapper/state.md
     expect(wrapper.state('error').length).toBeGreaterThan(0);
     expect(wrapper).toMatchSnapshot();
 });
 
 test('should set description on input change', () => {
     const value = 'New Description';
-    // 1. Render expense form
     const wrapper = shallow(<ExpenseForm />);
-    // 2. Change input for desc.
     wrapper.find('input').at(0).simulate('change', {
         target: { value }
     });
-    // 3. make an assertion that desc was set
     expect(wrapper.state('description')).toBe(value);
 });
 
-// should set note on textarea change.
+test('should set note on textarea change.', () => {
+    const value = 'New Notes';
+    const wrapper = shallow(<ExpenseForm />);
+    wrapper.find('textarea').simulate('change', {
+        target: { value }
+    });
+    expect(wrapper.state('note')).toBe(value);
+});
+
+// should set amount if valid input
+// 23.50
+
+// should not set amount if invalid input
+// 12.122

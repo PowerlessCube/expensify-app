@@ -3,6 +3,18 @@ import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { editExpense, removeExpense } from '../actions/expenses';
 
+// Refactor EditExpensePage to be a class based component
+// Setup mapDispatchToProps editExpense and removeExpense
+
+// should render EditExpensePage
+// snapshop
+
+// should handle editExpense
+// spies.
+
+// should handle removeExpense
+// spies.
+
 const EditExpensePage = (props) => {
     return ( 
         <div>

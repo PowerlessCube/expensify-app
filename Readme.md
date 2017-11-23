@@ -6,6 +6,8 @@
 - [airbnb react-dates](https://github.com/airbnb/react-dates)
 - [babel object spread operator](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
 - [Enzyme](http://airbnb.io/enzyme/docs/api/)
+- [Express](http://express.js)
+- [Extract Text Pugin](https://www.npmjs.com/package/extract-text-webpack-plugin)
 - [jest](https://facebook.github.io/jest/)
 - [momentjs](https://momentjs.com/)
 - [react-redux](https://github.com/reactjs/react-redux)
@@ -13,7 +15,6 @@
 - [Redux](www.redux.js.org)
 - [redux devtool extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [webpack production server](https://webpack.js.org/guides/production/)
-- [Extract Text Pugin](https://www.npmjs.com/package/extract-text-webpack-plugin)
 
 # Concept notes
 

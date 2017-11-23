@@ -12,6 +12,7 @@
 - [react-test-render](https://github.com/facebook/react/tree/master/packages/react-test-renderer)
 - [Redux](www.redux.js.org)
 - [redux devtool extension](https://github.com/zalmoxisus/redux-devtools-extension)
+- [webpack production server](https://webpack.js.org/guides/production/)
 
 # Concept notes
 

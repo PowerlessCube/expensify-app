@@ -13,6 +13,7 @@
 - [Redux](www.redux.js.org)
 - [redux devtool extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [webpack production server](https://webpack.js.org/guides/production/)
+- [Extract Text Pugin](https://www.npmjs.com/package/extract-text-webpack-plugin)
 
 # Concept notes
 

@@ -63,7 +63,6 @@ test('should sort by amount', () => {
     expect(sortByAmount).toHaveBeenCalled();
 });
 
-// should handle date changes - assert spies
 test('should handle date changes', () => {
     const startDate = moment().add(2, 'days');
     const endDate = moment().add(4, 'days');
@@ -75,7 +74,6 @@ test('should handle date changes', () => {
     expect(setEndDate).toHaveBeenLastCalledWith(endDate);
 });
 
-// should handle date focus changes - assert something about the state.
 test('should handle date focus changes', () => {
     const focused = 'endDate';
     wrapper.find('DateRangePicker').prop('onFocusChange')(focused);

@@ -12,6 +12,7 @@
 - [Heroku Cli](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 - [jest](https://facebook.github.io/jest/)
 - [momentjs](https://momentjs.com/)
+- [numeralJs](http://numeraljs.com/) - js numeric format library.
 - [react-redux](https://github.com/reactjs/react-redux)
 - [react-test-render](https://github.com/facebook/react/tree/master/packages/react-test-renderer)
 - [Redux](www.redux.js.org)

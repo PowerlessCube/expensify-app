@@ -1,8 +1,3 @@
-// create test file
-// grab imports
-// render expenseListItem with fixture data
-// create snapshot
-
 import React from 'react';
 import ExpenseListItem from '../../components/ExpenseListItem';
 import { shallow } from 'enzyme';

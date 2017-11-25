@@ -1,8 +1,8 @@
-import selectExpenseTotal from '../../selectors/selectExpenseTotal';
+import selectExpenseTotal from '../../selectors/expenseTotal';
 import expenses from '../fixtures/expenses';
 
 test('Should return 0 if no expenses', () => {
-    const total = selectExpenseTotal();
+    const total = selectExpenseTotal([]);
     expect(total).toBe(0);
 });
 

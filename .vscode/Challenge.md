@@ -1,36 +1,16 @@
-# Build It: adding Total Selector
+# Create ExpensesSummary Component
 
-**Create Expenses-total.js and expenses-total.test.js**
+- Rendered by ExpenseDashboardPage
+- Test with two snapshot test
+- Connected to store for:
+- - expenseCount (How many visible expenses?)
+- - expenseTotal (what' the total of the visible expenses?)
 
-```jsx
-import selectExpensesTotal from '../../selectors/expenses-total.js';
-// import from fixtures
-const expenses = [{
-    id: '1',
-    description: 'Gum',
-    note: '',
-    amount: 195,
-    createdAt: 0
-}, {
-    id: '2',
-    description: 'Rent',
-    note: '',
-    amount: 109500,
-    createdAt: moment(0).subtract(4, 'days').valueOf()
-}, {
-    id: '3',
-    description: 'Credit Card',
-    note: '',
-    amount: 4500,
-    createdAt: moment(0).add(4, 'days').valueOf()
-}]
+**Example**
+Viewing 2 expenses totalling $94.34
 
-const total = getExpensesTotal(expenses); // look into map and reduce use these two to add up numbers in an array of objects.
+**Example**
+Viewing 1 expense totalling $94.34
 
-console.log(total); // 114195
-```
-
-## Tests to Create
-- Should return 0 if no expenses
-- Should correctly add up a single expense
-- should correctly add up multiple expenses
+# Commit and Deploy
+Get the feature live

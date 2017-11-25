@@ -21,6 +21,8 @@
 
 # Concept notes
 
+
+
 ## Why Do we Need Something Like Redux?
 [Link to video](https://completereactcourse.com/courses/217645/lectures/3382375)
 
@@ -50,3 +52,5 @@ Complex - We need a way for each component describes what it needs from the stat
     - Read data off of the store 
     - Control how we change the data in the store
 
+## What is a Redux Selector
+[redux selector](https://www.saltycrane.com/blog/2017/05/what-are-redux-selectors-why-use-them/)

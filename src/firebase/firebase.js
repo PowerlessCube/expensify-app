@@ -15,7 +15,11 @@ const database = firebase.database();
 database.ref().set({
     name: 'Alistair Mackay',
     age: 29,
-    isMarried: true,
+    stressLevel: 6,
+    job: {
+        title: 'junior software developer',
+        company: 'Escrivo'
+    },
     location: {
         city: 'Edinburgh',
         country: 'Scotland'
@@ -26,7 +30,14 @@ database.ref().set({
     console.log('this failed', e);
 });
 
-database.ref('isMarried').set(null);
+// Change the stressLevel to a 9
+// Change job to Amazon
+// Change location .city to Seattle
+database.ref().update({
+    stressLevel: 9,
+    'location/city': 'Seattle',
+    'job/company': 'Amazon'
+})
 
 // database.ref('isMarried')
 //     .remove()

@@ -12,7 +12,7 @@ const config = {
 firebase.initializeApp(config);
 
 const database = firebase.database()
-// ref by default is the root of the database.
+// https://firebase.google.com/docs/reference/js/firebase.database.Reference#set => docs for set()
 database.ref().set({
     name: 'Alistair Mackay',
     age: 29,
@@ -21,12 +21,23 @@ database.ref().set({
         city: 'Edinburgh',
         country: 'Scotland'
     },
-    attributes: {
-        height: 1.78,
-        weight: 95
-    }
-});
+}).then(() => {
+    console.log('Data got saved');
+}).catch((e) => {
+    console.log('this failed', e);
+});;
 
-// This happens asynch.
-database.ref('age').set(30)
-database.ref('location/city').set('Aberdeen');
+// Challenge
+// setup then and catch
+// makesure catch actually works
+// switch rules to be open
+// make sure that then runs.
+
+database.ref('attributes').set({
+    height: 178,
+    weight: 95
+}).then(() => {
+    console.log('Data has changed!');
+}).catch(() => {
+    console.log('Something done goofed!');
+});

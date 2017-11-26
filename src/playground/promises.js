@@ -6,6 +6,10 @@ const promise = new Promise((resolve, reject) => {
         // });
         reject('Something went wrong!');
     }, 1500)
+}).then(() => {
+    console.log('Data got saved')
+}).catch((e) => {
+    console.log('this failed', e)
 });
 
 console.log('before');

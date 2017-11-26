@@ -11,6 +11,22 @@ const config = {
 
 firebase.initializeApp(config);
 
-firebase.database().ref().set({
-    name: 'Alistair Mackay'
+const database = firebase.database()
+// ref by default is the root of the database.
+database.ref().set({
+    name: 'Alistair Mackay',
+    age: 29,
+    isMarried: true,
+    location: {
+        city: 'Edinburgh',
+        country: 'Scotland'
+    },
+    attributes: {
+        height: 1.78,
+        weight: 95
+    }
 });
+
+// This happens asynch.
+database.ref('age').set(30)
+database.ref('location/city').set('Aberdeen');

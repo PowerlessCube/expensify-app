@@ -8,6 +8,7 @@
 - [Enzyme](http://airbnb.io/enzyme/docs/api/)
 - [Express](http://express.js)
 - [Extract Text Pugin](https://www.npmjs.com/package/extract-text-webpack-plugin)
+- [Firebase](https://firebase.google.com/)
 - [Heroku](www.heroku.com)
 - [Heroku Cli](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 - [jest](https://facebook.github.io/jest/)

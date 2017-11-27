@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+import expenses from '../tests/fixtures/expenses';
 
 const config = {
     apiKey: "AIzaSyDMobxKhGXYOnODCw9VRpXGF_Ocft9-9aQ",
@@ -13,15 +14,62 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-// Setup subscription -> Alistair is a software dev at Amazon.
-const onValueChange = database.ref().on('value', (snapshot) => {
-    const { name, job: {title}, job: {company} } = snapshot.val();
-    console.log(`${name} is a ${title} at ${company}`);
-}, (e) => {
-    console.log('Error with data fetching, ', e);
-});
+expenses.map((expense) => {
+    const { description, note, amount, createdAt } = expense
+    database.ref('expenses').push({
+        description,
+        note,
+        amount,
+        createdAt
+    })
+})
 
-// Change the data and makre sure ir reprints.
+// Setup 'Expenses' with items {description, note, amount, createdAt}
+
+// database.ref('notes/-Kzush49hylpC5tFLB4F').remove()
+
+// how to add 
+// database.ref('notes').push({
+//     title: 'Course topics',
+//     body: 'React stuff and firebase'
+// })
+
+/*
+// The difference between arrays in firebase and the real world
+const firebaseNotes = {
+    notes: {
+        id2314ad: {
+            title: 'First Note',
+            body: 'This is my note'
+        },
+        id2343ad: {
+            title: 'Second Note',
+            body: 'This is second my note'
+        }
+    }
+}
+
+const notes = [{
+    id: '12',
+    title: 'First Note',
+    body: 'This is my note'
+}, {
+    id: '34asd',
+    title: 'Second Note',
+    body: 'This is my other note'
+}]
+
+database.ref('notes').set(firebaseNotes)
+*/
+
+// Setup subscription -> Alistair is a software dev at Amazon.
+// const onValueChange = database.ref().on('value', (snapshot) => {
+//     const { name, job: {title} = 'unkown', job: {company} = 'unknown' } = snapshot.val();
+//     console.log(`${name} is a ${title} at ${company}`);
+// }, (e) => {
+//     console.log('Error with data fetching, ', e);
+// });
+
 
 // database.ref('location/city')
 //     .once('value')

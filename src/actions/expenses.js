@@ -1,23 +1,37 @@
 import uuid from 'uuid';
+import database from '../firebase/firebase';
+
+// components calls action generator
+// action gen returns func
+// comp dispatch func (?)
+// function runs (has the ability to dispatch other action sand do whatever it wants)
 
 // ADD_EXPENSE
-export const addExpense = (
-    { 
-        description = '', 
-        note = '', 
-        amount = 0, 
-        createdAt = 0 
-    } = {}
-) => ({ 
+export const addExpense = (expense) => ({ 
     type: 'ADD_EXPENSE',
-    expense: {
-        id: uuid(),
-        description,
-        note,
-        amount,
-        createdAt
-    }
+    expense
 });
+
+export const startAddExpense = (expenseData = {}) => {
+    // works due to middleware thunk
+    return (dispatch) => {
+        const {
+            description = '', 
+            note = '', 
+            amount = 0, 
+            createdAt = 0 
+        } = expenseData;
+        
+        const expense = { description, note, amount, createdAt }
+        
+        database.ref('expenses').push(expense).then((ref) => {
+            dispatch(addExpense({
+                id: ref.key,
+                ...expense
+            }))
+        });
+    };
+};
 
 // REMOVE_EXPENSE
 export const removeExpense = ({ id } = {}) => ({

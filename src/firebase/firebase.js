@@ -14,15 +14,41 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-expenses.map((expense) => {
-    const { description, note, amount, createdAt } = expense
-    database.ref('expenses').push({
-        description,
-        note,
-        amount,
-        createdAt
-    })
-})
+// Challenge
+const onExpenseChange = database.ref('expenses').on('value', (snapshot) => {
+    const firebaseExpenses = [];
+    snapshot.forEach((childSnapshot) => {
+        firebaseExpenses.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
+        });
+    });
+    console.log(firebaseExpenses);
+});
+
+// database.ref('expenses')
+// .once('value')
+// .then((snapshot) => {
+//     const expenses = [];
+//     snapshot.forEach((childSnapshot) => {
+//         expenses.push({
+//             id: childSnapshot.key,
+//             ...childSnapshot.val()
+//         })
+//     })
+//     console.log(expenses);
+// })
+
+// maps through fixtures returning key info required and pushing it to firebase.
+// expenses.map((expense) => {
+//     const { description, note, amount, createdAt } = expense
+//     database.ref('expenses').push({
+//         description,
+//         note,
+//         amount,
+//         createdAt
+//     })
+// })
 
 // Setup 'Expenses' with items {description, note, amount, createdAt}
 

@@ -61,3 +61,19 @@ Complex - We need a way for each component describes what it needs from the stat
 
 ## What is a Redux Selector
 [redux selector](https://www.saltycrane.com/blog/2017/05/what-are-redux-selectors-why-use-them/)
+
+## Heroku Config commands
+Retrieve list of ENV variables for Heroku server
+```
+heroku config 
+```
+
+Set a new ENV varibale for Heroku server
+```
+Heroku config:set
+```
+
+Remove an ENV varibale from the Heroku server
+```
+Heroku config:unset
+```

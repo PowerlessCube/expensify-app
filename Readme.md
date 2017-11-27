@@ -20,9 +20,10 @@
 - [redux devtool extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [webpack production server](https://webpack.js.org/guides/production/)
 
+## Techniques Used
+- [ES6 destructing](http://www.deadcoderising.com/2017-03-28-es6-destructuring-an-elegant-way-of-extracting-data-from-arrays-and-objects-in-javascript/)
+
 # Concept notes
-
-
 
 ## Why Do we Need Something Like Redux?
 [Link to video](https://completereactcourse.com/courses/217645/lectures/3382375)

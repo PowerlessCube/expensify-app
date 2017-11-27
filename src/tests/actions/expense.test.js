@@ -4,7 +4,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import database from '../../firebase/firebase';
 
-// Setup mock store for all testcases passing in any middle ware we might be using.
 const createMockStore = configureMockStore([thunk])
 
 test('Should setup remove expense action object', () => {
@@ -61,7 +60,6 @@ test('Should add expense to database and store', (done) => {
         });
         
         return database.ref(`expenses/${actions[0].expense.id}`).once('value')
-        //Creating a promise chain the successful run of the above will trigger the start of the below.
     }).then((snapshot) => {
         expect(snapshot.val()).toEqual(expenseData);
         done();

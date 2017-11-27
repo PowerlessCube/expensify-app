@@ -5,6 +5,9 @@
 # Tools Used
 - [airbnb react-dates](https://github.com/airbnb/react-dates)
 - [babel object spread operator](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
+- [cross-env - cross platform ENV varibale]
+(https://www.npmjs.com/package/cross-env)
+- [dotenv - loads env varibales from .env files](https://www.npmjs.com/package/dotenv)
 - [Enzyme](http://airbnb.io/enzyme/docs/api/)
 - [Express](http://express.js)
 - [Extract Text Pugin](https://www.npmjs.com/package/extract-text-webpack-plugin)

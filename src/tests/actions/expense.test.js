@@ -41,7 +41,6 @@ test('Should setup add expense action object with provided values', () => {
     })
 });
 
-// We need to tell jest it's Async. call done when done
 test('Should add expense to database and store', (done) => {
     const store = createMockStore({});
     const expenseData = {
@@ -50,7 +49,7 @@ test('Should add expense to database and store', (done) => {
         note: 'This one is better',
         createdAt: 1000
     }
-    //Asynch call - how do we test it?
+    
     store.dispatch(startAddExpense(expenseData)).then(() => {
         const actions = store.getActions();
         expect(actions[0]).toEqual({
@@ -60,15 +59,37 @@ test('Should add expense to database and store', (done) => {
                 ...expenseData
             }
         });
-        // testing response from database
-        database.ref(`expenses/${actions[0].expense.id}`).once('value').then((snapshot) => {
-            expect(snapshot.val()).toEqual(expenseData);
-            done();
-        });
-    })
-
+        
+        return database.ref(`expenses/${actions[0].expense.id}`).once('value')
+        //Creating a promise chain the successful run of the above will trigger the start of the below.
+    }).then((snapshot) => {
+        expect(snapshot.val()).toEqual(expenseData);
+        done();
+    });
 });
 
-test('Should add expense with defaults to database and store', () => {
+test('Should add expense with defaults to database and store', (done) => {
+    const store = createMockStore({});
+    const expenseDefault = {
+        description: '', 
+        note: '', 
+        amount: 0, 
+        createdAt: 0 
+    };
     
+    store.dispatch(startAddExpense({})).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: 'ADD_EXPENSE',
+            expense: {
+                id: expect.any(String),
+                ...expenseDefault
+            }
+        });
+        
+        return database.ref(`expenses/${actions[0].expense.id}`).once('value')
+    }).then((snapshot) => {
+        expect(snapshot.val()).toEqual(expenseDefault);
+        done();
+    });
 });

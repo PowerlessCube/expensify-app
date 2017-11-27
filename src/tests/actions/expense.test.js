@@ -2,6 +2,7 @@ import { startAddExpense, addExpense, editExpense, removeExpense } from '../../a
 import expenses from '../fixtures/expenses';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import database from '../../firebase/firebase';
 
 // Setup mock store for all testcases passing in any middle ware we might be using.
 const createMockStore = configureMockStore([thunk])
@@ -47,13 +48,25 @@ test('Should add expense to database and store', (done) => {
         description: 'Mouse',
         amount: 3000,
         note: 'This one is better',
-        creeatedAt: 1000
+        createdAt: 1000
     }
-     //Asynch call - how do we test it?
+    //Asynch call - how do we test it?
     store.dispatch(startAddExpense(expenseData)).then(() => {
-        expect(1).toBe(1);
-        done();
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: 'ADD_EXPENSE',
+            expense: {
+                id: expect.any(String),
+                ...expenseData
+            }
+        });
+        // testing response from database
+        database.ref(`expenses/${actions[0].expense.id}`).once('value').then((snapshot) => {
+            expect(snapshot.val()).toEqual(expenseData);
+            done();
+        });
     })
+
 });
 
 test('Should add expense with defaults to database and store', () => {

@@ -1,4 +1,4 @@
-import { startAddExpense, addExpense, editExpense, removeExpense, setExpenses } from '../../actions/expenses';
+import { startAddExpense, addExpense, editExpense, removeExpense, setExpenses, startSetExpenses } from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -107,3 +107,20 @@ test('Should setup set expense action object with data', () => {
         expenses
     })
 });
+
+test('Should fetch the expenses from firebase', (done) => {
+    // 1. Create the Mockstore
+    const store = createMockStore({});
+    // 2. dispatch action to our mock store.
+    store.dispatch(startSetExpenses()).then(() => {
+        // 3. Get actions
+        const actions = store.getActions();
+        // 4. set our expect
+        expect(actions[0]).toEqual({
+            type: 'SET_EXPENSES',
+            expenses
+        });
+        // 5. tell Jest that we're done.
+        done();
+    })
+})

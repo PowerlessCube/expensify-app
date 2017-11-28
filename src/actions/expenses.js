@@ -1,11 +1,6 @@
 import uuid from 'uuid';
 import database from '../firebase/firebase';
 
-// components calls action generator
-// action gen returns func
-// comp dispatch func (?)
-// function runs (has the ability to dispatch other action sand do whatever it wants)
-
 // ADD_EXPENSE
 export const addExpense = (expense) => ({ 
     type: 'ADD_EXPENSE',
@@ -51,7 +46,20 @@ export const setExpenses = (expenses) => ({
     expenses
 });
 
-// export const startSetExpenses;
-// 1. Fetch all expense data once
-// 2. Parse that data into an array
-// 3. Dispatch SET_EXPENSES
+// START_SET_EXPENSES
+export const startSetExpenses = (expenses = {}) => {
+    return (dispatch) => {
+        return database.ref('expenses').once('value').then((snapshot) => {
+            const expenses = [];
+
+            snapshot.forEach((childSnapshot) => {
+                expenses.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                });
+            })
+
+            dispatch(setExpenses(expenses))
+        })
+    }
+}

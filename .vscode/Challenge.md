@@ -1,16 +1,6 @@
-# Create ExpensesSummary Component
+# Expense Removal Challenge
 
-- Rendered by ExpenseDashboardPage
-- Test with two snapshot test
-- Connected to store for:
-- - expenseCount (How many visible expenses?)
-- - expenseTotal (what' the total of the visible expenses?)
-
-**Example**
-Viewing 2 expenses totalling $94.34
-
-**Example**
-Viewing 1 expense totalling $94.34
-
-# Commit and Deploy
-Get the feature live
+1. Create startRemoveExpense (same call signature as removeExpense)
+2. Test startRemoveExpense with "should remove expenses from firebase"
+3. Use startRemoveExpense in EditExpensePage instead of removeExpense
+4. Adjust EditExpensePage tests

@@ -1,5 +1,5 @@
-# Expense Removal Challenge
-1. Create startEditExpense (same call signature as editExpense)
-2. Test startEditExpense with "should edit expenses from firebase"
-3. Use startEditExpense in EditExpensePage instead of editExpense
-4. Adjust EditExpensePage tests
+# Create a Login Page Component
+1. Create LoginPage component with "Login" button
+2. Add snapshot test for LoginPage
+3. Show Login component at root of app -> /
+4. Show ExpenseDashboardPage at -> /dashboard

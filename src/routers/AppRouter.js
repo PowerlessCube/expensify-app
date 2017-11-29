@@ -7,19 +7,20 @@ import EditExpensePage from '../components/EditExpensePage';
 import ExpenseDashBoardPage from '../components/ExpenseDashboardPage';
 import Header from '../components/Header';
 import HelpPage from '../components/HelpPage';
+import Login from '../components/Login';
 import NotFoundPage from '../components/NotFoundPage';
 
-// Dynamically match /:id
 const AppRouter = () => (
     <BrowserRouter> 
         <div>
             <Header />
             <Switch>
-                <Route path='/' component={ExpenseDashBoardPage} exact={true}/>
-                <Route path='/create' component={AddExpensePage}/>
-                <Route path='/edit/:id' component={EditExpensePage}/>
-                <Route path='/help' component={HelpPage}/>
-                <Route component={NotFoundPage}/>
+                <Route path='/' component={Login} exact={true} />
+                <Route path='/dashboard' component={ExpenseDashBoardPage} />
+                <Route path='/create' component={AddExpensePage} />
+                <Route path='/edit/:id' component={EditExpensePage} />
+                <Route path='/help' component={HelpPage} />
+                <Route component={NotFoundPage} />
             </Switch>
         </div>        
     </BrowserRouter>

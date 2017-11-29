@@ -5,6 +5,7 @@ import {
     removeExpense, 
     setExpenses, 
     startSetExpenses,
+    startEditExpense,
     startRemoveExpense
 } from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
@@ -18,9 +19,9 @@ beforeEach((done) => {
     const expensesData = {}
     expenses.forEach(({ id, description, note, amount, createdAt }) => {
         expensesData[id] = { description, note, amount, createdAt}
-    })
+    });
     database.ref('expenses').set(expensesData).then(() => done())
-})
+});
 
 test('Should setup remove expense action object', () => {
     const action = removeExpense({ id: '123abc' });
@@ -131,7 +132,7 @@ test('Should fetch the expenses from firebase', (done) => {
         // 5. tell Jest that we're done.
         done();
     })
-})
+});
 
 test('Should remove expense from firebase', (done) => {
     const store = createMockStore([thunk]);
@@ -147,4 +148,22 @@ test('Should remove expense from firebase', (done) => {
         expect(snapshot.val()).toBeFalsy();
         done();
     })
-})
+});
+
+test('Should edit expense from firebase', (done) => {
+    const store = createMockStore([thunk]);
+    const id = expenses[0].id;
+    const updates = { amount: 200 };
+    store.dispatch(startEditExpense(id, updates)).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: 'EDIT_EXPENSE',
+            id,
+            updates
+        })
+        return database.ref(`expenses/${id}`).once('value');
+    }).then((snapshot) => {
+        expect(snapshot.val().amount).toBe(updates.amount)
+        done();
+    });
+});

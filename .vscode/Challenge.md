@@ -1,5 +1,5 @@
-# Create a Login Page Component
-1. Create LoginPage component with "Login" button
-2. Add snapshot test for LoginPage
-3. Show Login component at root of app -> /
-4. Show ExpenseDashboardPage at -> /dashboard
+# PublicRoute 
+1. Create PublicRoute (copy PrivateRoute)
+2. Redirect to /dashboard if logged in
+3. Render component if not logged in
+4. Use it for the LoginPage.

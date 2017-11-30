@@ -14,6 +14,7 @@
 - [Firebase](https://firebase.google.com/docs/)
 - [Heroku](www.heroku.com)
 - [Heroku Cli](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+- [History](https://www.npmjs.com/package/history)
 - [jest](https://facebook.github.io/jest/)
 - [momentjs](https://momentjs.com/)
 - [numeralJs](http://numeraljs.com/) - js numeric format library.

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 
-import AppRouter from './routers/AppRouter';
+import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
@@ -20,17 +20,28 @@ const jsx = (
     </Provider>
 );
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+let hasRendered = false;
+const renderApp = () => {
+    if (!hasRendered) {
+        ReactDOM.render(jsx, document.getElementById('app'));
+        hasRendered = true;        
+    }
+};
 
-store.dispatch(startSetExpenses()).then(() => {
-    ReactDOM.render(jsx, document.getElementById('app'));
-})
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 
 // Takes a callback and can check if user logged in or out.
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        console.log('log in');
+        store.dispatch(startSetExpenses()).then(() => {
+            renderApp();
+            // Checks if the user was on the dashboard if true redirects to dashboard.
+            if (history.location.pathname === '/') {
+                history.push('/dashboard');
+            }
+        })
     } else {
-        console.log('log out');
+        renderApp();
+        history.push('/');
     }
 });

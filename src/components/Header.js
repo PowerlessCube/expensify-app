@@ -17,16 +17,3 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(undefined, mapDispatchToProps)(Header);
-
-// What we need to do in firebase
-const db = {
-    user: {
-        userid: {
-            expenses: {
-                expenseId,
-                otherThing,
-                etc
-            }
-        }
-    }
-}

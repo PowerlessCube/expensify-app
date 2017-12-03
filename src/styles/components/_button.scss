@@ -1,7 +1,9 @@
-.button__login {
+.button {
     background: $google-blue;
-    border-radius: 0px;
+    border: none;
+    border-radius: 0;
     color: white;
+    font-weight: 300;
+    font-size: $font-size-large;
     padding: $s-size;
-    border-color: lighten( $google-blue, 10%);
 }

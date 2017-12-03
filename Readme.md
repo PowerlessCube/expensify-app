@@ -5,13 +5,13 @@
 # Tools Used
 - [airbnb react-dates](https://github.com/airbnb/react-dates)
 - [babel object spread operator](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
-- [cross-env - cross platform ENV varibale]
-(https://www.npmjs.com/package/cross-env)
+- [cross-env - cross platform ENV varibale](https://www.npmjs.com/package/cross-env)
 - [dotenv - loads env varibales from .env files](https://www.npmjs.com/package/dotenv)
 - [Enzyme](http://airbnb.io/enzyme/docs/api/)
 - [Express](http://express.js)
 - [Extract Text Pugin](https://www.npmjs.com/package/extract-text-webpack-plugin)
 - [Firebase](https://firebase.google.com/docs/)
+- [Firebase - Security docs: validation](https://firebase.google.com/docs/reference/security/database/?authuser=0)
 - [Heroku](www.heroku.com)
 - [Heroku Cli](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 - [History](https://www.npmjs.com/package/history)

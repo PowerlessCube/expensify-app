@@ -1,5 +1,4 @@
-# PublicRoute 
-1. Create PublicRoute (copy PrivateRoute)
-2. Redirect to /dashboard if logged in
-3. Render component if not logged in
-4. Use it for the LoginPage.
+# Do the login button 
+1. Create new file
+2. Setup selector styles
+3. Setup className on Login button

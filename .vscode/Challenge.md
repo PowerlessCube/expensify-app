@@ -1,5 +1,4 @@
-# Adding the partials
-1. Create input-group partial
-2. Add selectors for input-group and input-group__item
-3. Setup flexbox with space below the group
-4. Setup right margin for the individual items
+# Changing the Edit expense css
+1. Setup page page header
+2. Setup content contain for form and remove button
+3. Add button and button--secondary (bg of #888)

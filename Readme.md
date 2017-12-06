@@ -1,4 +1,5 @@
 # Read Me
+production ready app viewable on [heroku](https://react-course-2-expensify-cube.herokuapp.com/dashboard).
 
 # Installation Guide
 

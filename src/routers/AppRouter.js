@@ -6,6 +6,7 @@ import AddExpensePage from '../components/AddExpensePage';
 import EditExpensePage from '../components/EditExpensePage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
+import ModalRoot from '../components/ModalRoot';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
@@ -20,6 +21,7 @@ const AppRouter = () => (
         <PrivateRoute path="/create" component={AddExpensePage} />
         <PrivateRoute path="/edit/:id" component={EditExpensePage} />
         <PublicRoute component={NotFoundPage} />
+        <ModalRoot />
       </Switch>
     </div>
   </Router>

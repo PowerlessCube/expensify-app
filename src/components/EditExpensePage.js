@@ -2,15 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { startRemoveExpense, startEditExpense } from '../actions/expenses';
+import { showModal } from '../actions/modal';
 
 export class EditExpensePage extends React.Component {
     onSubmit = (expense) => {
+        console.log(this.props);
         this.props.startEditExpense(this.props.expense.id, expense);
         this.props.history.push('/');
     }
-    onRemove = () => {
-        this.props.startRemoveExpense({ id: this.props.expense.id });
-        this.props.history.push('/');
+    showModal = (expense) => {
+        console.log(this.props);
+        this.props.showModal(expense)
     }
 
     render() {
@@ -28,7 +30,7 @@ export class EditExpensePage extends React.Component {
                     />
                     <button 
                         className="button button--secondary"
-                        onClick={this.onRemove}
+                        onClick={this.showModal}
                     >Remove Expense</button>
                 </div>
             </div>
@@ -37,12 +39,13 @@ export class EditExpensePage extends React.Component {
 }
 
 const mapStateToProps = (state, props) => ({
-    expense: state.expenses.find((expense) => expense.id === props.match.params.id)
+    expense: state.expenses.find((expense) => expense.id === props.match.params.id),
+    modal: state.modal
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
     startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
-    startRemoveExpense: (data) => dispatch(startRemoveExpense(data))
+    showModal: (expense) => dispatch(showModal(expense))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditExpensePage);
